@@ -1,0 +1,29 @@
+
+  .cart-link {
+    margin-left: 1rem; 
+  }
+  .navbar-bottom-border {
+    height: 2px;
+    background-color: #f790ad; 
+  }
+  .navbar .navbar-collapse {
+  flex-wrap:nowrap;
+  }
+  .navbar .navbar-nav .dropdown-menu {
+  position: absolute !important;
+  }
+  .dropdown-toggle::after {
+    content: none;
+  }
+
+  
+ 
+
+
+  footer {
+    
+    bottom: 0;
+    width: 100%;
+    background-color: #343a40;
+    padding: 10px 0;
+  }
