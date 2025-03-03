@@ -21,7 +21,7 @@
     <header>
         <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
             <div class="container">
-                <a class="logo" href="{% url 'index' %}">Lilu</a>
+                <a class="logo" href="{% url 'main:index' %}">Lilu</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -30,10 +30,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown ">
-                            <a class="nav-link  text-black"  href="{% url 'about' %}">О нас</a>
+                            <a class="nav-link  text-black"  href="{% url 'main:about' %}">О нас</a>
                         </li>
                         <li class="nav-item dropdown ">
-                            <a class="nav-link  text-black" href="{% url 'delivery' %}">Доставка и оплата</a>
+                            <a class="nav-link  text-black" href="{% url 'main:delivery' %}">Доставка и оплата</a>
                         </li>
                         <li class="nav-item dropdown ">
                             <a class="nav-link  text-black"  href="">Блог</a>
