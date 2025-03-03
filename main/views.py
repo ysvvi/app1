@@ -15,3 +15,10 @@ def about(request):
     }
 
     return render(request, 'main/about.html', context)
+
+def delivery(request):
+    context = {
+        'title': 'Оплата и доставка – Lilu',
+    }
+
+    return render(request, 'main/delivery.html', context)

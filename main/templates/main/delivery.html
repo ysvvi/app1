@@ -1,0 +1,205 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "deps/css/bootstrap/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "deps/css/delivery.css" %}">
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+
+    <!-- лого во вкладке -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "deps/favicon/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "deps/favicon/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "deps/favicon/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "deps/favicon/site.webmanifest" %}">
+
+    <title>Салон цветов в Оренбурге – Lilu</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+            <div class="container">
+                <a class="logo" href="{% url 'index' %}">Lilu</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link  text-black"  href="{% url 'about' %}">О нас</a>
+                        </li>
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link  text-black"  href="{% url 'delivery' %}">Доставка и оплата</a>
+                        </li>
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link  text-black"  href="#">Блог</a>
+                        </li>
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link  text-black"  href="#contact-info">Контактная информация</a>
+                        </li>
+                            
+                        <li class="nav-item">
+                            <a class="nav-link  text-black" href="{% static "users/login.html" %}">Войти</a>
+                        </li>
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle text-black" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Мой профиль
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item  text-black" href="{% static "carts/cart.html" %}">Корзина</a></li>
+                                <li><a class="dropdown-item  text-black" href="{% static "users/profile.html" %}">Личный кабинет</a>
+                                </li>
+                                <li><a class="dropdown-item  text-black" href="#">Админ панель</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item  text-black" href="#">Выйти</a></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                    <a class="nav-link  cart-link" href="{% static "carts/cart.html" %}"><img src="{% static "deps/icons/basket.png" %}" alt="" class="basket"></a> 
+                </div>
+            </div>
+        </nav> 
+         <div class="navbar-bottom-border"></div>
+    </header>
+    <section>
+        <!-- Контент -->
+        <div class="container">
+            <div class="row mt-1 body">
+                <div class="head-photo">
+                    <h1>Оплата и доставка</h1>
+                    <p><a href="{% url 'index' %}">Главная</a> / Оплата и доставка</p>
+                    <img src="" alt="">
+                </div>
+                <div class="container-two">
+                    <div class="text">
+                        <div class="all">
+                            <div class="arrange" id="arrange">
+                                <h3>Как оформить заказ</h3>
+                                <div class="compartments">
+                                    <div class="compartment ">
+                                        <div>
+                                            <img src="{% static "deps/images/arrange1.png"%}" alt="">
+                                         </div>
+                                        <h5><b>На сайте</b></h5>
+                                        <p>Если вам понравился букет, просто добавьте его в корзину и введите свои данные. Наш оператор свяжется с вами для подтверждения заказа.</p>
+                                    </div>
+                                    <div class="compartment ">
+                                        <div>
+                                            <img src="{% static "deps/images/arrange2.png"%}" alt="">
+                                         </div>
+                                        <h5><b>По телефону</b></h5>
+                                        <p>Наши операторы всегда осведомлены о наличии цветов. Они помогут выбрать букет в зависимости от повода и вашего бюджета.</p>
+                                    </div>        
+                                    <div class="compartment ">
+                                        <div>
+                                            <img src="{% static "deps/images/arrange3.png"%}" alt="">
+                                         </div>
+                                        <h5><b>В магазине</b></h5>
+                                        <p>Если вы желаете самостоятельно выбрать готовый букет или оформить доставку цветов, запасайтесь визитом в наши салоны.</p>
+                                    </div>    
+                                </div>
+                            </div>
+                            <div class="navbar-bottom-border two"></div>
+                            <div class="delivery" id="delivery">
+                                <h3>Доставка</h3>
+                                <div class="compartments">
+                                    <div class="compartment">
+                                        <div>
+                                            <img src="{% static "deps/images/delivery1.png"%}" alt="">
+                                         </div>
+                                        <h5><b>Стоимость доставки</b></h5>
+                                        <p>Стоимость доставки по городу - 350 рублей. За пределы города доплата + 55 руб/км.<br>
+                                            При заказе от 3000 руб. - доставка по городу бесплатная.  За пределы города доплата + 55 руб/км.<br>
+                                            Если у вас остались вопросы, свяжитесь с нашими менеджерами по телефону .</p>
+                                    </div>
+                                    <div class="compartment">
+                                        <div>
+                                            <img src="{% static "deps/images/delivery2.png"%}" alt="">
+                                         </div>
+                                        <h5><b>Срок доставки</b></h5>
+                                        <p>Служба доставки «Lilu» доставит цветы в течение 30 минут с момента оформления заказа (в пределах города).<br>
+                                            <u>*Точность времени доставки составляет +-20 мин.</u></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="navbar-bottom-border two"></div>
+                            <div class="payment" id="payment">
+                                <h3>Оплата</h3>
+                                <div class="compartments">
+                                    <div class="compartment">
+                                        <div>
+                                            <img src="{% static "deps/images/payment1.png"%}" alt="">
+                                         </div>
+                                        <h5><b>Оплата банковской картой</b></h5>
+                                        <p>Товары на сайте можно оплатить онлайн или банковской картой при получении. Это удобно, быстро и безопасно.<br>
+                                        1. На странице оформления заказа выберите способ оплаты «Банковская карта».<br>
+                                        2. После оформления заказа нажмите «Оплатить».<br>
+                                        3. Заполните данные с карты и обязательно укажите свою эл.почту (на e-mail Вам придет чек).<br>
+                                        4. Для успешной оплаты остается всего лишь нажать кнопку «Далее».</p>
+                                    </div>
+                                    <div class="compartment">
+                                        <div>
+                                            <img src="{% static "deps/images/payment2.png"%}" alt="">
+                                         </div>
+                                        <h5><b>Оплата наличными</b></h5>
+                                        <p>Вы можете оплатить заказ наличными:<br>
+                                        1. На странице оформления заказа выберите способ оплаты «Наличный расчет».<br>
+                                        2. Оплата наличными производится при самовывозе.<br>
+                                        <u>*Обращаем Ваше внимание, что наличный способ оплаты доступен только в том случае, если получателем будете Вы сами.</u></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-bottom-border two"></div>
+                <div class="container-bot">
+                    <div class="bottom">
+                        <div class="map-container" id="contact-info">
+                            <script  type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A0290673fb2844d6d217163b0b58aa8174575267a7ac90ef8e2557716fca0883a&amp;width=650&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+                        </div>
+                        <div class="contact-info">
+                            <h1><b>Свяжитесь с нами</b></h1>
+                            <div class="contact-info-p">
+                                <p>+7 (905) 880-50-00</p>
+                                <p>г. Оренбург, ул. Джангильдина, 3</p>
+                        </div>
+                        <div class="social-networks">
+                            <a href="https://vk.com/buketorenburg?from=search"><img src="{% static "deps/images/vk.png" %}" alt=""></a>
+                            <a href="https://t.me/+piFTutoEmdY4ZTBi"><img src="{% static "deps/images/tg.png" %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="navbar-bottom-border three"></div>
+    <footer class="py-4 ">
+        <div class="container">
+           <a href="" class="footer">Политика</a>
+           <a href="" class="footer">Оферта</a>
+        </div>
+    </footer>
+
+    <script src="{% static "deps/js/jquery/jquery-3.7.0.min.js" %}"></script>
+    <script src="{% static "deps/js/jquery-events.js" %}"></script>
+    <script src="{% static "deps/js/jquery-ajax.js" %}"></script>
+    <script src="{% static "deps/js/bootstrap/bootstrap.bundle.min.js" %}"></script>
+</body>
+
+</html>
