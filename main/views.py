@@ -11,14 +11,14 @@ def index(request):
 
 def about(request):
     context = {
-        'title': 'Про нас – Lilu',
+        'title': 'Салон цветов в Оренбурге – Lilu',
     }
 
     return render(request, 'main/about.html', context)
 
 def delivery(request):
     context = {
-        'title': 'Оплата и доставка – Lilu',
+        'title': 'Салон цветов в Оренбурге – Lilu',
     }
 
     return render(request, 'main/delivery.html', context)
