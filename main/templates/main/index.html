@@ -7,11 +7,6 @@
 {% endblock %}
 
 
-{% block title %}
-    <title>Цветы с доставкой в Оренбурге – Lilu</title>
-{% endblock %}
-
-
 {% block content %}
     <!-- Контент -->
 <div class="container">
@@ -20,7 +15,7 @@
             <div class="image-container">
                 <p class="overlay-text">ПОДАРИТЕ СВОЮ<br> ЛЮБОВЬ</p>
                 <img src="{% static "deps/images/main3.jpg" %}" alt="" class="going-catalog-images">
-                <button  class="catalog-button"><a href="" class="going-catalog one">Перейти в каталог</a></button>
+                <button  class="catalog-button"><a href=" {% url "catalog:index" %} " class="going-catalog one">Перейти в каталог</a></button>
             </div>
         </div>
         <div class="navbar-bottom-border two"></div>
@@ -77,7 +72,7 @@
                         </div>
                     </li>
                 </ul>
-                <button class="catalog-button-two"><a href="" class="going-catalog two">Перейти в каталог</a></button>
+                <button class="catalog-button-two"><a href="{% url "catalog:index" %}" class="going-catalog two">Перейти в каталог</a></button>
             </div>
             <div class="navbar-bottom-border two"></div>
             <div class="categories">
@@ -118,7 +113,7 @@
                     собранное с трепетом и вниманием к деталям,
                     чтобы ваши чувства прозвучали в полную силу.</p>
                 </div>
-                <button><a href="" class="going-catalog three">Выбрать букет</a></button>
+                <button><a href="{% url "catalog:index" %}" class="going-catalog three">Выбрать букет</a></button>
                 
             </div>
             <div class="photos">
