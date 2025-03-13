@@ -1,0 +1,114 @@
+[
+    {
+        "model": "goods.categories",
+        "pk": 4,
+        "fields": {
+            "name": "��� ������",
+            "slug": "all"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 5,
+        "fields": {
+            "name": "����������",
+            "slug": "monobukety"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 6,
+        "fields": {
+            "name": "������ � �������",
+            "slug": "bukety-v-korzine"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 7,
+        "fields": {
+            "name": "������ � �������",
+            "slug": "bukety-v-korobke"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 8,
+        "fields": {
+            "name": "����� ��������",
+            "slug": "cvety-poshtuchno"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 9,
+        "fields": {
+            "name": "����������",
+            "slug": "kompozicii"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 10,
+        "fields": {
+            "name": "������ �������",
+            "slug": "myagkie-igrushki"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 11,
+        "fields": {
+            "name": "��������",
+            "slug": "otkrytki"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 12,
+        "fields": {
+            "name": "��������� ����",
+            "slug": "vozdushnye-shary"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 13,
+        "fields": {
+            "name": "������������� �����",
+            "slug": "iskusstvennye-cvety"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 14,
+        "fields": {
+            "name": "����",
+            "slug": "vazy"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 15,
+        "fields": {
+            "name": "��������� ��������",
+            "slug": "komnatnye-rasteniya"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 16,
+        "fields": {
+            "name": "����� ��� ��������",
+            "slug": "grunt-dlya-rastenij"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 17,
+        "fields": {
+            "name": "������ ��� ��������",
+            "slug": "gorshki-dlya-rastenij"
+        }
+    }
+]

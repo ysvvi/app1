@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from goods.models import Categories
+
 def index(request):
     context = {
         'title': 'Цветы с доставкой в Оренбурге – Lilu',
@@ -15,6 +17,7 @@ def about(request):
     }
 
     return render(request, 'main/about.html', context)
+
 
 def delivery(request):
     context = {
