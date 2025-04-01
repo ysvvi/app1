@@ -1,5 +1,6 @@
 {% extends "main/base.html" %}
 {% load static %}
+{% load goods_tags %}
 
 
 {% block css %}
@@ -25,8 +26,9 @@
                 </div>
                 <div class="filter-content">
                     <ul class="filter-ul">
+                        {% tag_categories as categories %}
                         {% for category in categories %}
-                        <li><a href="{% url "catalog:index" %}">{{category.name}}</a></li>
+                            <li><a href="{% url "catalog:index" category.slug %}">{{category.name}}</a></li>
                         {% endfor %}
                     </ul>    
                 </div>

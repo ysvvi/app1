@@ -30,7 +30,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown ">
-                            <a class="nav-link  text-black"  href="{% url "goods:index" %}">Каталог</a>
+                            <a class="nav-link  text-black"  href="{% url 'goods:index' category_slug='all' %}">Каталог</a>
                         </li>
                         <li class="nav-item dropdown ">
                             <a class="nav-link  text-black"  href="{% url 'main:about' %}">О нас</a>

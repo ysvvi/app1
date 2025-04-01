@@ -3,14 +3,16 @@ from django.http import HttpResponse
 from django.template import context
 from goods.models import Categories, Products
 
-def catalog(request):
+def catalog(request, category_slug):
 
-    categories=Categories.objects.all()
+    if category_slug == 'all':
+        goods = Products.objects.all()
+    else: 
+        goods = Products.objects.filter(category__slug=category_slug)
+        
 
-    goods = Products.objects.all()
     context = {
         'title': 'Каталог – Lilu',
-        'categories': categories,
         'goods': goods,
     }
     return render(request, 'goods/catalog.html', context)
