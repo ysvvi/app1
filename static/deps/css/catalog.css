@@ -1,155 +1,192 @@
-body{
+  body{
     align-items: center;
-      background-color: #f7f8f9;
-    }
-    a{
-      color: black;
-      text-decoration: none;    
-    }
-    a:hover{
-      color: black;
-    }
-    .going-catalog:hover {
-      color: #ffffff;
-    }
-    .a:hover{
-      color: #f790ad;
-    }
-    .categories a:hover{
-      color:#f790ad;
-    }
-   .cart-link {
-      margin-left: 1rem; 
-    }
-    .navbar-bottom-border {
-      align-items: center;
-      height: 2px;
-      background-color: #f790ad; 
-    }
-    .navbar .navbar-collapse {
+    background-color: #f7f8f9;
+  }
+  a{
+    color: black;
+    text-decoration: none;    
+  }
+  a:hover{
+    color: black;
+  }
+  .going-catalog:hover {
+    color: #ffffff;
+  }
+  .a:hover{
+    color: #f790ad;
+  }
+  .categories a:hover{
+    color:#f790ad;
+  }
+  .cart-link {
+    margin-left: 1rem; 
+  }
+  .navbar-bottom-border {
+    align-items: center;
+    height: 2px;
+    background-color: #f790ad; 
+  }
+  .navbar .navbar-collapse {
     flex-wrap:nowrap;
-    }
-    .navbar .navbar-nav .dropdown-menu {
+  }
+  .navbar .navbar-nav .dropdown-menu {
     position: absolute !important;
-    }
-    .dropdown-toggle::after {
-      content: none;
-    }
-    .why-ate-we-list{
-      list-style-type: none;
-    }
-    button{
-      border: solid 1px;
-      border-color: #f790ad;
-      background-color: #f790ad;
-    }
+  }
+  .dropdown-toggle::after {
+    content: none;
+  }
+  .why-ate-we-list{
+    list-style-type: none;
+  }
+  button{
+    border: solid 1px;
+    border-color: #f790ad;
+    background-color: #f790ad;
+  }
   
   /*-----------------------------*/
   
-    .logo{
-      color: black;
-      background-color: #f790ad;
-      width: 57px;
-      height: 57px;
-      border-radius: 50%;
-      font-size: 40px;
-      margin-right: 4%;
-      font-family: "Dancing Script", serif;
-    }
-    .basket{
-      width: 45px;
-    }
+  .logo{
+    color: black;
+    background-color: #f790ad;
+    width: 57px;
+    height: 57px;
+    border-radius: 50%;
+    font-size: 40px;
+    margin-right: 4%;
+    font-family: "Dancing Script", serif;
+  }
+  .basket{
+    width: 45px;
+  }
     
 /*-----------------------------*/
 
-.top{
-  margin-top: 1%;
-  font-family: "Playfair Display", serif;
-  font-size: 17px;
-  text-align: center;
-}
-.container.one{
-  margin-top: 2%;
-}
-.filters {
-  position: absolute;
-}
-.filter-container {
-  font-family: "Playfair Display", serif;
-  margin-left: -30%;
-  width: 300px;
-  margin-top: -6%;
-}
-.filter-container h2{
-  margin-bottom: 10%;
-}
-.filter-item {
-  margin-bottom: 10px;
-}
-.filter-header {
-  width: 100%;
-  font-size: 17px;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 5px;
-}
-.filter-content {
-  display: none; 
-  padding: 10px;
-}
-.scrollable {
-  max-height: 200px; 
-  overflow-y: auto; 
-  border-top: 1px solid #ccc; 
-  padding-top: 5px; 
-}
-.price-inputs {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-.price-inputs label {
-  margin-right: 5px;
-}
-.price-inputs input {
-  margin-right: 2%;
-  height: 30px;
-  width: 70px; 
-}
-
-.slider-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.price-slider {
-  background: #959595;
-  margin-top: 10px;
-  -webkit-appearance: none;
-  appearance: none;
-  height: 3px;
-  border-radius: 5px;
-  outline: none;
-}
-.price-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  background: pink;
-  border-radius: 50%;
-}
-.arrow {
-  float: right;
-}
-
+  .top{
+    margin-top: 1%;
+    font-family: "Playfair Display", serif;
+    font-size: 17px;
+    text-align: center;
+    letter-spacing: 1px;  
+  }
+  .container.one{
+    margin-top: 2%;
+  }
+  .filters {
+    position: absolute;
+  }
+  .filter-container {
+    font-family: "Playfair Display", serif;
+    margin-left: -30%;
+    width: 300px;
+    margin-top: -6%;
+  }
+  .filter-container h2{
+    margin-bottom: 10%;
+  }
+  .filter-ul li{
+    letter-spacing: 1px;
+    font-size: 17px;
+    list-style: none;
+    padding: 5px;
+    margin-left: -16%;
+    
+  }
+  .filter-item {
+    margin-bottom: 10px;
+  }
+  .filter-header {
+    width: 100%;
+    font-size: 17px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .filter-content {
+    display: none; 
+    padding: 10px;
+  }
+  .scrollable {
+    max-height: 200px; 
+    overflow-y: auto; 
+    border-top: 1px solid #ccc; 
+    padding-top: 5px; 
+  }
+  .price-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .price-inputs label {
+    margin-right: 5px;
+  }
+  .price-inputs input {
+    margin-right: 2%;
+    height: 30px;
+    width: 70px; 
+  }
+  .slider-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .price-slider {
+    background: #959595;
+    margin-top: 10px;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 3px;
+    border-radius: 5px;
+    outline: none;
+  }
+  .price-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: pink;
+    border-radius: 50%;
+  }
+  .arrow {
+    float: right;
+  }
 
 /*-----------------------------*/
 
+  .custom-shadow{
+    font-family: "Playfair Display", serif;;
+  }
+  .card-title{
+    text-align: center;
+    font-size: 17px;
+  }
+  .aa {
+    display: flex;
+    justify-content: space-between; /* Размещение элементов по краям */
+    align-items: center; 
+    width: 100%; 
+  }
+  .card-price {
+    font-size: 17px;
+    margin-left: 25%;
+    flex: 1; /* Позволяет ценовому элементу занимать доступное пространство */
+    text-align: center;
+  }
+  .aa a {
+    margin-left: auto;
+  }
+  .product_id{
+    color: #959595;
+    text-align: center;
+  }
+  .product-discount-price{
+    margin-left: 10%;
+  }
 
-.container-bot {
+/*-----------------------------*/
+
+  .container-bot {
     display: flex;
     margin: 5% 5%;
   }
@@ -194,7 +231,7 @@ body{
 
 /*-----------------------------*/
 
-footer {
+  footer {
     text-align: center;
     bottom: 0;
     width: 100%;

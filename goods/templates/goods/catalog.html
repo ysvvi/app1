@@ -18,7 +18,19 @@
         <!-- Каталог -->
         <div class="filter-container">
             <h2>Фильтры</h2>
-            
+            <div class="filter-item">
+                <div class="filter-header">
+                    Категории
+                    <span class="arrow">ᐯ</span>
+                </div>
+                <div class="filter-content">
+                    <ul class="filter-ul">
+                        {% for category in categories %}
+                        <li><a href="{% url "catalog:index" %}">{{category.name}}</a></li>
+                        {% endfor %}
+                    </ul>    
+                </div>
+            </div>
             <div class="filter-item">
                 <div class="filter-header">
                     По цене 
@@ -41,7 +53,7 @@
                 </div>
                 <div class="filter-content">
                     <div class="scrollable">
-                        <label><input type="checkbox"> Альстремия</label><br>
+                        <label><input type="checkbox"> Альстормерия</label><br>
                         <label><input type="checkbox"> Амарилис</label><br>
                         <label><input type="checkbox"> Бруния</label><br>
                         <label><input type="checkbox"> Гвоздика</label><br>
@@ -73,6 +85,7 @@
                         <label><input type="checkbox"> Сирень</label><br>
                         <label><input type="checkbox"> Статица</label><br>
                         <label><input type="checkbox"> Тюльпаны</label><br>
+                        <label><input type="checkbox"> Французская роза</label><br>
                         <label><input type="checkbox"> Хризантемы</label><br>
                         <label><input type="checkbox"> Шишка сосновая</label><br>
                         <label><input type="checkbox"> Эвкалипт</label><br>
@@ -80,7 +93,6 @@
                     </div>
                 </div>
             </div>
-    
             <div class="filter-item">
                 <div class="filter-header">
                     По цвету
@@ -184,22 +196,33 @@
                     <!-- Карта товара -->
                     <div class="col-lg-4 col-md-6 p-4">
                         <div class="card border-primary rounded custom-shadow">
-                            <img src="{% static product.image %}" width="100%" height="auto" class="card-img-top" alt="...">
-                            <div class="card-body">
                                 <a href="#">
-                                    <p class="card-title">{{ product.name}}</p>
+                                    {% if product.image %}
+                                        <img src="{{ product.image.url}}" width="100%" height="auto" class="card-img-top" alt="...">
+                                    {% endif %}
+                                    <div class="card-body">
+                                        
+                                    <p class="card-title">{{product.name}}</p>
                                 </a>
-                                <p class="card-text text-truncate">{{product.description}}</p>
-                                <p class="product_id">id: 02265</p>
-                                <div class="d-flex justify-content-between">
-                                    {% comment %} <p><s>100</s> ₽</p>
-                                    <p><strong>90.00 ₽</strong></p>
-                                    <span class="badge bg-warning text-dark">Скидка 10.00 %</span> {% endcomment %}
-                                    <p><strong>{{product.price}} ₽</strong></p> 
-                                    <a href="#" class="btn add-to-cart">
-                                        <img class="mx-1" src="{% static "deps/icons/basket.png" %}" alt="Catalog Icon"
-                                            width="32" height="32">
-                                    </a>
+                                <p class="product_id">id: {{product.display_id}}</p>
+                                <div class="aa">
+                                    {% if product.discount %}
+                                        <p class="product-discount-price"><s>{{product.price}}</s> ₽</p>
+                                        <p class="product-discount-sprice">{{product.sell_price}} ₽</p>
+                                        
+                                    {% else %}
+                                        <div class="card-price">
+                                            <p>{{product.price}} ₽</p>
+                                        </div>
+                                    {% endif %}
+                                    
+                                    
+                                    <div >
+                                        <a href="#" class="btn add-to-cart">
+                                            <img class="mx-1" src="{% static "deps/icons/basket.png" %}" alt="Catalog Icon"
+                                                width="32" height="32">
+                                        </a>
+                                    </div>    
                                 </div>
                             </div>
                         </div>

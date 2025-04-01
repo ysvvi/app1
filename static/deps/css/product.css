@@ -1,65 +1,65 @@
-body{
+  body{
     align-items: center;
-      background-color: #f7f8f9;
-    }
-    a{
-      text-decoration: none;    
-    }
-    .going-catalog:hover {
-      color: #ffffff;
-    }
-    a:hover{
-      color: black;
-    }
-    .categories a:hover{
-      color:#f790ad;
-    }
-   .cart-link {
-      margin-left: 1rem; 
-    }
-    .navbar-bottom-border {
-      align-items: center;
-      height: 2px;
-      background-color: #f790ad; 
-    }
-    .navbar .navbar-collapse {
-    flex-wrap:nowrap;
-    }
-    .navbar .navbar-nav .dropdown-menu {
+    background-color: #f7f8f9;
+  }
+  a{
+    text-decoration: none;    
+  }
+  .going-catalog:hover {
+    color: #ffffff;
+  }
+  a:hover{
+    color: black;
+  }
+  .categories a:hover{
+    color:#f790ad;
+  }
+  .cart-link {
+    margin-left: 1rem; 
+  }
+  .navbar-bottom-border {
+    align-items: center;
+    height: 2px;
+    background-color: #f790ad; 
+  }
+  .navbar .navbar-collapse {
+  flex-wrap:nowrap;
+  }
+  .navbar .navbar-nav .dropdown-menu {
     position: absolute !important;
-    }
-    .dropdown-toggle::after {
-      content: none;
-    }
-    .why-ate-we-list{
-      list-style-type: none;
-    }
-    button{
-      border: solid 1px;
-      border-color: #f790ad;
-      background-color: #f790ad;
-    }
+  }
+  .dropdown-toggle::after {
+    content: none;
+  }
+  .why-ate-we-list{
+    list-style-type: none;
+  }
+  button{
+    border: solid 1px;
+    border-color: #f790ad;
+    background-color: #f790ad;
+  }
   
   /*-----------------------------*/
   
-    .logo{
-      color: black;
-      background-color: #f790ad;
-      width: 57px;
-      height: 57px;
-      border-radius: 50%;
-      font-size: 40px;
-      margin-right: 4%;
-      font-family: "Dancing Script", serif;
-    }
-    .basket{
-      width: 45px;
-    }
+  .logo{
+    color: black;
+    background-color: #f790ad;
+    width: 57px;
+    height: 57px;
+    border-radius: 50%;
+    font-size: 40px;
+    margin-right: 4%;
+    font-family: "Dancing Script", serif;
+  }
+  .basket{
+    width: 45px;
+  }
     
 /*-----------------------------*/
 
 
-.container-bot {
+  .container-bot {
     display: flex;
     margin: 5% 5%;
   }
@@ -104,7 +104,7 @@ body{
 
 /*-----------------------------*/
 
-footer {
+  footer {
     text-align: center;
     bottom: 0;
     width: 100%;
