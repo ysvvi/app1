@@ -196,7 +196,7 @@
                     <!-- Карта товара -->
                     <div class="col-lg-4 col-md-6 p-4">
                         <div class="card border-primary rounded custom-shadow">
-                                <a href="#">
+                                <a href="{% url "catalog:product" product.slug %}">
                                     {% if product.image %}
                                         <img src="{{ product.image.url}}" width="100%" height="auto" class="card-img-top" alt="...">
                                     {% endif %}
@@ -209,13 +209,11 @@
                                     {% if product.discount %}
                                         <p class="product-discount-price"><s>{{product.price}}</s> ₽</p>
                                         <p class="product-discount-sprice">{{product.sell_price}} ₽</p>
-                                        
                                     {% else %}
                                         <div class="card-price">
                                             <p>{{product.price}} ₽</p>
                                         </div>
                                     {% endif %}
-                                    
                                     
                                     <div >
                                         <a href="#" class="btn add-to-cart">
