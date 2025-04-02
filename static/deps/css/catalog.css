@@ -62,7 +62,12 @@
     
 /*-----------------------------*/
 
-  
+  .not{
+    font-family: "Playfair Display", serif;
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 15%;
+  }
   .top{
     display: flex;
     margin-top: 1%;
