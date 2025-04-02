@@ -9,8 +9,15 @@
 
 
 {% block content %}
+
 <div class="top">
     <p><a href="{% url 'main:index' %}" class="a">Главная</a> / Каталог</p>
+    <div class="search">
+        <form class="d-flex" role="search" action="{% url "catalog:search" %}" metod="get">
+            <input class="form-control me-2" type="search" name="qu" placeholder="" aria-label="Search">
+            <button class="btn btn-outline-success text-black" type="submit">Поиск</button>
+        </form>
+    </div>
 </div>    
 <div class="navbar-bottom-border two"></div>
 <div class="container one">
@@ -170,10 +177,13 @@
                         aria-expanded="false">
                         Сортировать
                     </button>
-                    <form action="{% url "catalog:index" slug_url %}" method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
+                    <form action="{% if request.GET.q %}{% url "catalog:search" %}{% else %}{% url "catalog:index" slug_url %}{% endif %}" method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
                         <div class="form-check  mx-3">
                             <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on" {% if request.GET.on_sale == 'on' %}checked{% endif %}>
-                            {% comment "" %}<input type="hidden" name="q" value="request.GET.q">{% endcomment %}
+                            {% if request.GET.q %}
+                                <input type="hidden" name="q" value="{{ request.GET.q }}">
+                            {% endif %}
+                            
                             <label class="form-check-label" for="flexCheckDefault">
                                 Товары по акции <br><br>
                             </label>
