@@ -1,9 +1,10 @@
-  body{
-    align-items: center;
+body{
     background-color: #f7f8f9;
   }
+  
   a{
     text-decoration: none;    
+    
   }
   .going-catalog:hover {
     color: #ffffff;
@@ -12,13 +13,13 @@
     color: black;
   }
   .categories a:hover{
-    color:#f790ad;
+    color:#f790ad
   }
-  .cart-link {
+  
+ .cart-link {
     margin-left: 1rem; 
   }
   .navbar-bottom-border {
-    align-items: center;
     height: 2px;
     background-color: #f790ad; 
   }
@@ -26,7 +27,7 @@
   flex-wrap:nowrap;
   }
   .navbar .navbar-nav .dropdown-menu {
-    position: absolute !important;
+  position: absolute !important;
   }
   .dropdown-toggle::after {
     content: none;
@@ -39,9 +40,9 @@
     border-color: #f790ad;
     background-color: #f790ad;
   }
-  
-  /*-----------------------------*/
-  
+
+/*-----------------------------*/
+
   .logo{
     color: black;
     background-color: #f790ad;
@@ -55,69 +56,25 @@
   .basket{
     width: 45px;
   }
-    
-/*-----------------------------*/
 
-.all{
-  width: 90%;
-}
-.cards{
-  font-family: "Playfair Display", serif;
-  margin-bottom: 5%;
-}
-.img{
-  width: 500px;
-  border: 1px solid #959595;
-}
-.info{
-  margin-left: 15%;
-}
-.card-title{
-  width: 180%;
-  margin-top: 4%;
-}
-.card-body{
-  margin-left: 20%;
-  text-align: left;
-}
-.product_id{
-  font-size: 15px;
-  color: #959595;
-}
-.price{
-  margin-top: 3%;
-  color: #d66f8c;
-}
-.h5{
-  margin-top: 8%;
-  font-size: 20px;
-}
-.add-to-cart{
-  margin-top: 10%;
-}
-.description-structure{
-  height: 190px;
-}
-.description{
-  word-break: break-all;
-  width: 190%;
-  max-height: 80px;
-  font-size: 15px;
-}
-.structure{
-  word-break: break-all;
-  width: 190%;
-  max-height: 80px;
-  font-size: 15px;
-}
-.btn{
-  padding-top: 20px;
-  padding-bottom: 20px;
-  width: 200px;
-  font-size: 15px;
-  border-radius: 0;
-  background-color: #fac0d0;
-}
+/*-----------------------------*/
+  
+  .row-one{
+    width: 100%;
+    margin-bottom: 3%;
+  }
+  .custom-shadow{
+    box-shadow: 1px 1px 30px rgba(0, 0, 0, 1);
+    width: 40%;
+    border: 1px solid black;
+  }
+  .row-two{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
 /*-----------------------------*/
 
   .container-bot {
@@ -163,7 +120,7 @@
     gap: 10%;
   }
 
-/*-----------------------------*/
+  /*-----------------------------*/
 
   footer {
     text-align: center;
@@ -176,4 +133,3 @@
     color: black;
     margin: 2%;
   }
-  
