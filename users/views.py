@@ -1,8 +1,10 @@
-from django.contrib import auth
+from django.contrib import auth, messages
+from django.db.models import F
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-from users.forms import UserLoginForm, UserRegistrarionForm
+from users.forms import ProfileForm, UserLoginForm, UserRegistrarionForm
+from django.contrib.auth.decorators import login_required
 
 def login(request):
     if request.method == 'POST':
@@ -23,6 +25,7 @@ def login(request):
     }
     return render(request, 'users/login.html', context)
 
+
 def registration(request):
     if request.method == 'POST':
         form = UserRegistrarionForm(data=request.POST)
@@ -40,12 +43,24 @@ def registration(request):
     }
     return render(request, 'users/registration.html', context)
 
+@login_required
 def profile(request):
+    if request.method == 'POST':
+        form = ProfileForm(data=request.POST, instance=request.user, files=request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f"Профиль успешно обновлен.")
+            return HttpResponseRedirect(reverse('users:profile'))
+    else:
+        form = ProfileForm(instance=request.user)
+
     context = {
         'title': ' Lilu – Кабинет',
+        'form': form
     }
     return render(request, 'users/profile.html', context)
 
+@login_required
 def logout(request):
     auth.logout(request)
     return redirect(reverse('main:index'))
