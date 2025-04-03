@@ -1,0 +1,11 @@
+.container-one{
+    width: 100%;
+}
+.row-one{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ustom-shadow{
+    width: 70%;
+}
