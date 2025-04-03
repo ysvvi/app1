@@ -15,10 +15,14 @@
                     
                     <form action="{% url "users:login" %}" method="post">
                         {% csrf_token %}
+                        
+                        
                         {% if form.non_field_errors %}
                             <p>{{form.non_field_errors}}</p>
                         {% endif %}
-
+                        {% if request.GET.next %}
+                            <input type="hidden" name="next" value="{{request.GET.get}}">
+                        {% endif %}
                         {% comment "" %}{% for item in form %}
                             <div class="mb-3">
                                 <label for="{{item.id_for_label}}" class="form-label">{{item.label}}</label>
