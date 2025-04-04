@@ -18,7 +18,7 @@ def login(request):
 
                 if request.GET.get('next', None):
                     return HttpResponseRedirect(request.GET.get('next'))
-            
+                 
                 return HttpResponseRedirect(reverse('main:index'))
     else:
         form = UserLoginForm()
@@ -64,6 +64,10 @@ def profile(request):
         'form': form
     }
     return render(request, 'users/profile.html', context)
+
+
+def users_cart(request):
+    return render(request, 'users/users_cart.html')
 
 
 @login_required
