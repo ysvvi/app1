@@ -16,7 +16,8 @@ def login(request):
             if user:
                 auth.login(request, user)
 
-                if request.GET.get('next', None):
+                redirect_page = request.GET.get('next', None)
+                if redirect_page and redirect_page != reverse('user:logout'):
                     return HttpResponseRedirect(request.GET.get('next'))
                  
                 return HttpResponseRedirect(reverse('main:index'))

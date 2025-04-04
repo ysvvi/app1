@@ -13,7 +13,7 @@
 <div class="top">
     <p><a href="{% url 'main:index' %}" class="a">Главная</a> / Каталог</p>
     <div class="search">
-        <form class="d-flex" role="search" action="{% url "catalog:search" %}" metod="get">
+     <form class="d-flex" role="search" action="{% url "catalog:search" %}" metod="get">
             <input class="form-control me-2" type="search" name="qu" placeholder="" aria-label="Search">
             <button class="btn btn-outline-success text-black" type="submit">Поиск</button>
         </form>
@@ -252,7 +252,7 @@
                                     {% endif %}
                                     
                                     <div >
-                                        <a href="#" class="btn add-to-cart">
+                                        <a href="{% url "cart:cart_add" product.slug %}" class="btn add-to-cart">
                                             <img class="mx-1" src="{% static "deps/icons/basket.png" %}" alt="Catalog Icon"
                                                 width="32" height="32">
                                         </a>

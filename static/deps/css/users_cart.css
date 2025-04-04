@@ -60,7 +60,7 @@ body{
 /*-----------------------------*/
 
 .container-one{
-  width: 100%;
+  width: 99%;
   margin-bottom: 3%;
 }
 .row-one{
@@ -69,7 +69,7 @@ body{
   align-items: center;
 }
 .custom-shadow{
-  width: 80%;
+  width: 83%;
   box-shadow: 1px 1px 30px rgba(0, 0, 0, 1);
   border: 1px solid black;
   
