@@ -60,6 +60,8 @@ body{
 /*-----------------------------*/
 
 .container-one{
+  font-family: "Playfair Display", serif;
+  font-size: 17px;
   width: 99%;
   margin-bottom: 3%;
 }
