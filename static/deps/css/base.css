@@ -1,0 +1,119 @@
+body{
+    background-color: #f7f8f9;
+  }
+  a{
+    text-decoration: none;    
+    
+  }
+  .going-catalog:hover {
+    color: #ffffff;
+  }
+  a:hover{
+    color: black;
+  }
+  .categories a:hover{
+    color:#f790ad
+  }
+ .cart-link {
+    margin-left: 1rem; 
+  }
+  .navbar-bottom-border {
+    height: 2px;
+    background-color: #f790ad; 
+  }
+  .navbar .navbar-collapse {
+  flex-wrap:nowrap;
+  }
+  .navbar .navbar-nav .dropdown-menu {
+  position: absolute !important;
+  }
+  .dropdown-toggle::after {
+    content: none;
+  }
+  .why-ate-we-list{
+    list-style-type: none;
+  }
+  button{
+    border: solid 1px;
+    border-color: #f790ad;
+    background-color: #f790ad;
+  }
+
+/*-----------------------------*/
+
+  .logo{
+    color: black;
+    background-color: #f790ad;
+    width: 57px;
+    height: 57px;
+    border-radius: 50%;
+    font-size: 40px;
+    margin-right: 4%;
+    font-family: "Dancing Script", serif;
+  }
+  .basket{
+    width: 45px;
+  }
+  
+/*-----------------------------*/
+
+
+
+/*-----------------------------*/
+
+.container-bot {
+    display: flex;
+    margin: 5% 5%;
+  }
+  .bottom {
+    display: flex;
+    align-items: flex-start;
+    gap: 10%; 
+    width: 80%; 
+    max-width: 1200px; 
+  }
+  .map-container{
+    border: 2px solid #959595;
+  }
+  .bottom h1{
+    margin-top: 8%;
+    white-space: nowrap;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+  }
+  .contact-info-p{
+    line-height: 1.3;
+    margin-top: 10%;
+    font-family: "Playfair Display", serif;
+    font-weight: 200;
+    letter-spacing: 1px;
+    font-size: 18px;
+    margin-left: 10%;
+  }
+  .social-networks img {
+    max-width: 45px; 
+    max-height: 45px; 
+    
+  }
+  .social-networks {
+    margin-top: 40%; 
+    margin-left: 15%;
+    display: flex;
+    justify-content: flex-start; 
+    gap: 10%;
+  }
+
+  /*-----------------------------*/
+
+  footer {
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    background-color: #e2e2e2;
+    padding: 10px 0;
+  }
+  .footer{
+    color: black;
+    margin: 2%;
+  }
