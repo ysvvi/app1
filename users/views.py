@@ -82,7 +82,7 @@ def profile(request):
 
 
 def users_cart(request):
-    return render(request, 'users/users_cart.html')
+    return render(request, 'users/user_carts.html')
 
 
 @login_required
