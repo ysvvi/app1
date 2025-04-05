@@ -34,7 +34,28 @@
                                             <p>{{form.image.errors}}</p>
                                         {% endif %}
                                 </div>
-                                
+                                <div class="col-md-12 mb-3">
+                                    <label for="id_first_name" class="form-label">Имя*</label>
+                                    <input type="text" class="form-control" id="id_first_name"
+                                        name="first_name"
+                                        placeholder="Введите ваше имя"
+                                        value="{{ form.first_name.value }}"
+                                        required>
+                                        {% if form.first_name.errors %}
+                                        <a href="">{{form.first_name.errors}}</a>
+                                        {% endif %}
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label for="id_last_name" class="form-label">Фамилия*</label>
+                                    <input type="text" class="form-control" id="id_last_name"
+                                        name="last_name"
+                                        placeholder="Введите вашу фамилию"
+                                        value="{{ form.last_name.value }}"
+                                        required>
+                                        {% if form.last_name.errors %}
+                                        <a href="">{{form.last_name.errors}}</a>
+                                        {% endif %}
+                                </div>
                                 <div class="col-md-12 mb-3">
                                     <label for="id_username" class="form-label">Имя пользователя*</label>
                                     <input type="text" class="form-control" id="id_username"

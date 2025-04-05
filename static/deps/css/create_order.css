@@ -59,8 +59,20 @@ body{
   /*-----------------------------*/
 
     .container.one{
+      width: 100%;
       font-family: "Playfair Display", serif;
       font-size: 17px;
+      margin-bottom: 3%;
+    }
+    .row-one{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .custom-shadow{
+      width: 85%;
+      box-shadow: 1px 1px 30px rgba(0, 0, 0, 1);
+      border: 1px solid black;
     }
 
   /*-----------------------------*/
