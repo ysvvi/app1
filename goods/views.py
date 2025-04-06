@@ -1,5 +1,6 @@
 from django.db.models import F, DecimalField, ExpressionWrapper
 from django.http import Http404
+from django.shortcuts import render
 from django.views.generic import DetailView, ListView
 
 from goods.models import Products
@@ -8,12 +9,10 @@ from goods.utils import q_search
 
 class CatalogView(ListView):
     model = Products
-    # queryset = Products.objects.all().order_by("-id")
     template_name = "goods/catalog.html"
     context_object_name = "goods"
     paginate_by = 3
-    allow_empty = False
-    # чтоб удобно передать в методы
+    allow_empty = True
 
     def get_queryset(self):
         category_slug = self.kwargs.get("category_slug")
@@ -35,7 +34,6 @@ class CatalogView(ListView):
 
         if order_by and order_by != "default":
             if order_by == "price":
-                # Создаем аннотацию для сортировки по цене с учетом скидки
                 goods = goods.annotate(
                     discounted_price=ExpressionWrapper(F('price') - F('price') * F('discount') / 100, output_field=DecimalField())
                 ).order_by('discounted_price')
@@ -46,17 +44,21 @@ class CatalogView(ListView):
             else:
                 goods = goods.order_by(order_by)
 
+        goods = goods.filter(quantity__gt=0) # Фильтрация по наличию
+
         return goods
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "Каталог – Lilu"
         context["slug_url"] = self.kwargs.get("category_slug")
+        if not context["page_obj"].object_list:
+            context["no_goods_message"] = "Упс, такого товара нет в наличии."
+       
         return context
 
 
 class ProductView(DetailView):
-
     # model = Products
     # slug_field = "slug"
     template_name = "goods/product.html"
@@ -72,3 +74,6 @@ class ProductView(DetailView):
         context = super().get_context_data(**kwargs)
         context["title"] = self.object.name
         return context
+        
+    
+

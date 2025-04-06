@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+{% load carts_tags %}
+{% load cache %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static "deps/css/profile.css" %}">
@@ -123,7 +125,7 @@
                                                         <th>Товар</th>
                                                         <th>Количество</th>
                                                         <th>Цена</th>
-                                                        <th>Общая стоимость</th> 
+                                                        <th>Общая стоимость</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>

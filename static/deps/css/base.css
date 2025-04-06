@@ -40,7 +40,8 @@ body{
   }
 
 /*-----------------------------*/
-
+  .container.header{
+  }
   .logo{
     color: black;
     background-color: #f790ad;
@@ -54,6 +55,7 @@ body{
   .basket{
     width: 45px;
   }
+  
   
 /*-----------------------------*/
 

@@ -61,45 +61,15 @@
                     <span class="arrow">ᐯ</span>
                 </div>
                 <div class="filter-content">
-                    <div class="scrollable">
-                        <label><input type="checkbox"> Альстормерия</label><br>
-                        <label><input type="checkbox"> Амарилис</label><br>
-                        <label><input type="checkbox"> Бруния</label><br>
-                        <label><input type="checkbox"> Гвоздика</label><br>
-                        <label><input type="checkbox"> Гвоздика кустовая</label><br>
-                        <label><input type="checkbox"> Гербера</label><br>
-                        <label><input type="checkbox"> Гиацинт</label><br>
-                        <label><input type="checkbox"> Гиперикум</label><br>
-                        <label><input type="checkbox"> Гипсофила</label><br>
-                        <label><input type="checkbox"> Гортензия</label><br>
-                        <label><input type="checkbox"> Дельфиниум</label><br>
-                        <label><input type="checkbox"> Илекс</label><br>
-                        <label><input type="checkbox"> Ирис</label><br>
-                        <label><input type="checkbox"> Ковыль</label><br>
-                        <label><input type="checkbox"> Лизиантус</label><br>
-                        <label><input type="checkbox"> Лилия</label><br>
-                        <label><input type="checkbox"> Лилия пионовидная</label><br>
-                        <label><input type="checkbox"> Лимониум</label><br>
-                        <label><input type="checkbox"> Матиола</label><br>
-                        <label><input type="checkbox"> Нобилис</label><br>
-                        <label><input type="checkbox"> Пионовидная роза</label><br>
-                        <label><input type="checkbox"> Подсолнух</label><br>
-                        <label><input type="checkbox"> Ранункулюс</label><br>
-                        <label><input type="checkbox"> Роза Кения</label><br>
-                        <label><input type="checkbox"> Роза кустовая</label><br>
-                        <label><input type="checkbox"> Роза кустовая пионовидная</label><br>
-                        <label><input type="checkbox"> Роза Эквадор</label><br>
-                        <label><input type="checkbox"> Ромашка</label><br>
-                        <label><input type="checkbox"> Сантини</label><br>
-                        <label><input type="checkbox"> Сирень</label><br>
-                        <label><input type="checkbox"> Статица</label><br>
-                        <label><input type="checkbox"> Тюльпаны</label><br>
-                        <label><input type="checkbox"> Французская роза</label><br>
-                        <label><input type="checkbox"> Хризантемы</label><br>
-                        <label><input type="checkbox"> Шишка сосновая</label><br>
-                        <label><input type="checkbox"> Эвкалипт</label><br>
-                        <label><input type="checkbox"> Эустома</label><br>
-                    </div>
+                    <form method="get" action=".">
+                        {% for flower_type in flower_types %}
+                            <label>
+                                <input type="checkbox" name="flower_type" value="{{ flower_type.pk }}" {% if flower_type.pk in selected_flower_types %}checked{% endif %}>
+                                {{ flower_type.name }}
+                            </label><br>
+                        {% endfor %}
+                        <button type="submit">Применить фильтр</button>
+                    </form>
                 </div>
             </div>
             <div class="filter-item">
@@ -108,30 +78,34 @@
                     <span class="arrow">ᐯ</span>
                 </div>
                 <div class="filter-content">
-                    <label><input type="checkbox"> Белый</label><br>
-                    <label><input type="checkbox"> Красный</label><br>
-                    <label><input type="checkbox"> Голубой</label><br>
-                    <label><input type="checkbox"> Зеленый</label><br>
-                    <label><input type="checkbox"> Желтый</label><br>
-                    <label><input type="checkbox"> Розовый</label><br>
-                    <label><input type="checkbox"> Персиковый</label><br>
-                    <label><input type="checkbox"> Оранжевый</label><br>
+                    <form method="get" action=".">
+                        {% for color in colors %}
+                            <label>
+                                <input type="checkbox" name="color" value="{{ color.pk }}" {% if color.pk in selected_colors %}checked{% endif %}>
+                                {{ color.name }}
+                            </label><br>
+                        {% endfor %}
+                        <button type="submit">Применить фильтр</button>
+                    </form>
                 </div>
             </div>
-    
             <div class="filter-item">
                 <div class="filter-header">
                     По высоте
                     <span class="arrow">ᐯ</span>
                 </div>
                 <div class="filter-content">
-                    <label><input type="checkbox"> 40-60 см</label><br>
-                    <label><input type="checkbox"> 60-70 см</label><br>
+                    <form method="get" action=".">
+                        {% for height in heights %}
+                            <label>
+                                <input type="checkbox" name="height" value="{{ height.pk }}" {% if height.pk in selected_heights %}checked{% endif %}>
+                                {{ height.value }} {{ height.unit }}
+                            </label><br>
+                        {% endfor %}
+                        <button type="submit">Применить фильтр</button>
+                    </form>
                 </div>
             </div>
-        </div>
-    
-        
         </div>
     </div>
 </div>
@@ -182,92 +156,52 @@
                         </div>
                         <button type="submit" class="btn btn-primary mx-3 mt-3">Применить</button>
                     </form>
-                    {% comment %} <form action="{% if request.GET.q %}{% url "catalog:search" %}{% else %}{% url "catalog:index" slug_url %}{% endif %}" method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
-                        <div class="form-check  mx-3">
-                            <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on" {% if request.GET.on_sale == 'on' %}checked{% endif %}>
-                            {% if request.GET.q %}
-                                <input type="hidden" name="q" value="{{ request.GET.q }}">
-                            {% endif %}
-                            
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Товары по акции <br><br>
-                            </label>
-                        </div>
-                        <div class="form-check   mx-3">
-                            <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault1" value="default" 
-                            {% if not request.GET.order_by or request.GET.order_by == 'default' %}checked{% endif %}>
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                По умолчанию
-                            </label>
-                        </div>
-                        <div class="form-check   mx-3">
-                            <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault2" value="price" 
-                            {% if request.GET.order_by == 'price' %}checked{% endif %}>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                От дешевых к дорогим
-                            </label>
-                        </div>
-                        <div class="form-check   mx-3">
-                            <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault3" value="-price" 
-                            {% if request.GET.order_by == '-price' %}checked{% endif %}>
-                            <label class="form-check-label" for="flexRadioDefault3">
-                                От дорогих к дешевым
-                            </label>
-                        </div>
-                        <button type="submit" class="btn btn-primary mx-3 mt-3">Применить</button>
-                    </form> {% endcomment %}
                 </div>
 
-                {% if request.GET.qu %}
-               
                 {% if not goods %}
-                <h2 class="not">Упс, такого товара нет в наличии.</h2>
-                {% endif %}
-                {% endif %}
-                {% for product in goods %}
-                    <!-- Карта товара -->
-                    <div class="col-lg-4 col-md-6 p-4">
-                        <div class="card border-primary rounded custom-shadow">
-                                <a href="{% url "catalog:product" product.slug %}">
+                    <h2 class="not">Упс, такого товара нет в наличии.</h2>
+                {% else %}
+                    {% for product in goods %}
+                        <!-- Карточка товара -->
+                        <div class="col-lg-4 col-md-6 p-4">
+                            <div class="card border-primary rounded custom-shadow">
+                                <a href="{% url 'catalog:product' product.slug %}">
                                     {% if product.image %}
-                                        <img src="{{ product.image.url}}" width="100%" height="auto" class="card-img-top" alt="...">
+                                        <img src="{{ product.image.url }}" width="100%" height="auto" class="card-img-top" alt="...">
                                     {% endif %}
                                     <div class="card-body">
-                                        
-                                    <p class="card-title">
-                                        {% autoescape off %}
-                                            {% if product.headline %}
-                                            {{product.headline}}
-                                            {% else %}
-                                            {{product.name}}
-                                            {% endif %}
-                                        {% endautoescape %}
-                                    </p>
-                                </a>
-                                <p class="product_id">id: {{product.display_id}}</p>
-                                <div class="aa">
-                                    {% if product.discount %}
-                                        <p class="product-discount-price"><s>{{product.price}}</s> ₽</p>
-                                        <p class="product-discount-sprice">{{product.sell_price}} ₽</p>
-                                    {% else %}
-                                        <div class="card-price">
-                                            <p>{{product.price}} ₽</p>
+                                        <p class="card-title">
+                                            {% autoescape off %}
+                                                {% if product.headline %}
+                                                    {{ product.headline }}
+                                                {% else %}
+                                                    {{ product.name }}
+                                                {% endif %}
+                                            {% endautoescape %}
+                                        </p>
+                                    </a>
+                                    <p class="product_id">id: {{ product.display_id }}</p>
+                                    <div class="aa">
+                                        {% if product.discount %}
+                                            <p class="product-discount-price"><s>{{ product.price }}</s> ₽</p>
+                                            <p class="product-discount-sprice">{{ product.sell_price }} ₽</p>
+                                        {% else %}
+                                            <div class="card-price">
+                                                <p>{{ product.price }} ₽</p>
+                                            </div>
+                                        {% endif %}
+                                        <div>
+                                            <a href="{% url 'cart:cart_add' %}" class="btn add-to-cart" data-product-id="{{ product.id }}">
+                                                {% csrf_token %}
+                                                <img class="mx-1" src="{% static 'deps/icons/basket.png' %}" alt="Catalog Icon" width="32" height="32">
+                                            </a>
                                         </div>
-                                    {% endif %}
-                                    
-                                    <div >
-                                        <a href="{% url "cart:cart_add" %}" class="btn add-to-cart"
-                                        data-product-id="{{product.id}}">
-                                            {% csrf_token %}
-                                            <img class="mx-1" src="{% static "deps/icons/basket.png" %}" alt="Catalog Icon"
-                                                width="32" height="32">
-                                        </a>
-                                    </div>    
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}   
+                    {% endfor %}
+                {% endif %}
             </div>
             <!-- Пагинация -->
             {% if goods %}

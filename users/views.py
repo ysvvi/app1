@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login as auth_login
 from django.contrib.auth.views import LoginView
 from django.contrib import auth, messages
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -11,7 +12,7 @@ from django.views.generic import CreateView, TemplateView, UpdateView
 from carts.models import Cart
 from orders.models import Order, OrderItem
 
-from users.forms import ProfileForm, UserLoginForm, UserRegistrarionForm
+from users.forms import ProfileForm, UserLoginForm, UserRegistrationForm
 
 
 class UserLoginView(LoginView):
@@ -20,40 +21,39 @@ class UserLoginView(LoginView):
     # success_url = reverse_lazy('main:index')
 
     def get_success_url(self):
-        redirect_page= self.request.POST.get('next', None)
-        if redirect_page and redirect_page != reverse('user:login'):
+        redirect_page = self.request.POST.get('next', None)
+        if redirect_page and redirect_page != reverse('users:login'):
             return redirect_page
         return reverse_lazy('main:index')
-    
+
     def form_valid(self, form):
         session_key = self.request.session.session_key
 
         user = form.get_user()
 
         if user:
-            auth.login(self.request, user)
+            auth_login(self.request, user) # используем auth_login
             if session_key:
                 # delete old authorized user carts
                 forgot_carts = Cart.objects.filter(user=user)
                 if forgot_carts.exists():
                     forgot_carts.delete()
-#                 # add new authorized user carts from anonimous session
+                # add new authorized user carts from anonimous session
                 Cart.objects.filter(session_key=session_key).update(user=user)
 
-#                 messages.success(self.request, f"{user.username}, Вы вошли в аккаунт")
+                return HttpResponseRedirect(self.get_success_url()) # <-- Верный отступ!
 
-                return HttpResponseRedirect(self.get_success_url())
-        
+        return HttpResponseRedirect(self.get_success_url())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Авторизация – Lilu'
+        context['title'] = 'Home - Авторизация'
         return context
 
 
 class UserRegistrationView(CreateView):
     template_name = 'users/registration.html'
-    form_class = UserRegistrarionForm
+    form_class = UserRegistrationForm
     success_url = reverse_lazy('users:profile')
 
     def form_valid(self, form):
@@ -67,13 +67,12 @@ class UserRegistrationView(CreateView):
         if session_key:
             Cart.objects.filter(session_key=session_key).update(user=user)
 
-#         messages.success(self.request, f"{user.username}, Вы успешно зарегистрированы и вошли в аккаунт")
         return HttpResponseRedirect(self.success_url)
 
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['title'] = 'Home - Регистрация'
-#         return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Home - Регистрация'
+        return context
 
 
 class UserProfileView(LoginRequiredMixin, UpdateView):
@@ -85,24 +84,26 @@ class UserProfileView(LoginRequiredMixin, UpdateView):
         return self.request.user
     
     def form_valid(self, form):
+        messages.success(self.request, "Профайл успешно обновлен")
         return super().form_valid(form)
     
     def form_invalid(self, form):
+        messages.error(self.request, "Произошла ошибка")
         return super().form_invalid(form)
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Кабинет – Lilu'
+        context['title'] = 'Home - Кабинет'
 
-#         # Можно вынести сам запрос в отдельный метод этого класса контроллера
         orders = Order.objects.filter(user=self.request.user).prefetch_related(
-                Prefetch(
-                    "orderitem_set",
-                    queryset=OrderItem.objects.select_related("product"),
-                )
-            ).order_by("-id")
+            Prefetch(
+                "orderitem_set",
+                queryset=OrderItem.objects.select_related("product"),
+            )
+        ).order_by("-id")
 
-        # context['orders'] = self.set_get_cache(orders, f"user_{self.request.user.id}_orders", 60)
+        context['orders'] = orders # <--- Добавляем orders в context
+
         return context
 
 
@@ -111,7 +112,7 @@ class UserCartView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Корзина – Lilu'
+        context['title'] = 'Home - Корзина'
         return context
     
 # def login(request):
@@ -148,7 +149,7 @@ class UserCartView(TemplateView):
 
 # def registration(request):
 #     if request.method == 'POST':
-#         form = UserRegistrarionForm(data=request.POST)
+#         form = UserRegistrationForm(data=request.POST)
 #         if form.is_valid():
 #             form.save()
 
@@ -162,7 +163,7 @@ class UserCartView(TemplateView):
 
 #             return HttpResponseRedirect(reverse('main:index'))
 #     else:
-#         form = UserRegistrarionForm()
+#         form = UserRegistrationForm()
 
 #     context = {
 #         'title': ' Lilu – Регистрация',

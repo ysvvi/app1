@@ -65,7 +65,7 @@ class CreateOrderView(LoginRequiredMixin, FormView):
                     cart_items.delete()
 
                     messages.success(self.request, 'Заказ оформлен!')
-                    return redirect('users:profile')
+                    return redirect('user:profile')
         except ValidationError as e:
             messages.success(self.request, str(e))
             return redirect('orders:create_order')

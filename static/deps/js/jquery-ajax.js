@@ -1,43 +1,23 @@
-// Когда html документ готов (прорисован)
 $(document).ready(function () {
-    // берем в переменную элемент разметки с id jq-notification для оповещений от ajax
-    var successMessage = $("#jq-notification");
-
-    // Ловим событие клика по кнопке добавить в корзину
-    $(document).on("click", ".add-to-cart", function (e) {
-        // Блокируем его базовое действие
+    // Обработчик кликов по кнопке "Добавить в корзину"
+    $(".add-to-cart").click(function (e) {
         e.preventDefault();
-
-        // Берем элемент счетчика в значке корзины и берем оттуда значение
-        var goodsInCartCount = $("#goods-in-cart-count");
-        var cartCount = parseInt(goodsInCartCount.text() || 0);
-
-        // Получаем id товара из атрибута data-product-id
         var product_id = $(this).data("product-id");
-
-        // Из атрибута href берем ссылку на контроллер django
-        var add_to_cart_url = $(this).attr("href");
-
-        // делаем post запрос через ajax не перезагружая страницу
         $.ajax({
             type: "POST",
-            url: add_to_cart_url,
+            url: "{% url 'cart:add_item' %}",
             data: {
                 product_id: product_id,
-                csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
+                csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val()
             },
             success: function (data) {
-                // Увеличиваем количество товаров в корзине (отрисовка в шаблоне)
-                cartCount++;
-                goodsInCartCount.text(cartCount);
-
-                // Меняем содержимое корзины на ответ от django (новый отрисованный фрагмент разметки корзины)
-                var cartItemsContainer = $("#cart-items-container");
-                cartItemsContainer.html(data.cart_items_html);
+                $("#goods-in-cart-count").text(data.cart_count); // Используем data.cart_count
+                // Дополнительные действия, например, обновление HTML корзины
+                // с помощью data.cart_items_html, если необходимо
             },
-            error: function (data) {
-                console.log("Ошибка при добавлении товара в корзину");
-            },
+            error: function (xhr, status, error) {
+                console.error("Ошибка: ", error);
+            }
         });
     });
 
