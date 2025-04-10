@@ -27,3 +27,5 @@ class CartAdmin(admin.ModelAdmin):
     # user_display and product_display alter name of columns in admin panel
     user_display.short_description = "Пользователь"
     product_display.short_description = "Товар"
+
+

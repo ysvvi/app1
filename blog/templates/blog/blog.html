@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static "deps/css/blog.css" %}">
+{% endblock %}
+
+{% block content %}
+    <!-- Контент -->
+    <div class="container">
+        <div class="row mt-1 body">
+            <div class="head-photo">
+                <h1>Полезная информация</h1>
+                <p><a href="{% url 'main:index' %}">Главная</a> / Блог</p>
+            </div>
+            <div class="container-two" >
+                {% for post in post_list %}
+                    <div class="post-item">
+                        <div class="post-image">
+                            <a href="{{post.id}}"><img src="{{ post.img.url }}" alt="{{ post.title }}" width="40%" height="0%" style="max-width: 600px; max-height: 600px;"></a>
+                        </div>
+                        <div class="post-content">
+                            <h4><a href="{{post.id}}">{{post.title}}</a></h4>
+                            <p>{{post.description|truncatechars:250}}</p>
+                            <p class="post-author">Автор: {{post.author}}</p>
+                        </div>
+                    </div>
+                    <div class="text-bottom-border"></div>
+                {% endfor %}
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}

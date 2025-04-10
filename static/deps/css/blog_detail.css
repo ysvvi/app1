@@ -1,0 +1,45 @@
+.head-photo {
+    font-family: "Playfair Display", serif;
+    margin-top: 1%;
+    width: 100%; 
+    height: 170px; 
+    text-align: center;
+    align-items: center;
+    background: linear-gradient(to right, #f9f7f7, #e2e2e2 20%, #e2e2e2 80%, #f9f7f7);
+  }
+.head-photo h2{
+    color: #d66f8c;
+    margin-top: 2.5%;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+  }
+.head-photo p{
+    margin-top: 2%;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+.head-photo a{
+    color: black;
+}
+.head-photo a:hover{
+    color:#f790ad
+}
+
+ /*-----------------------------*/
+
+.container-two {
+    font-family: "Playfair Display", serif;
+    margin: 5% 0 5% ;
+    font-size: 17px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+}
+.post-image{
+    margin-right: 2%;
+    width: 100%;
+}
+.post-image img{
+    width: 400px;
+}

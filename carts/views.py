@@ -15,7 +15,7 @@ class CartAddView(CartMixin, View):
         product = Products.objects.get(id=product_id)
 
         cart = self.get_cart(request, product=product)
-        
+
         if cart:
             cart.quantity += 1
             cart.save()
@@ -67,3 +67,4 @@ class CartRemoveView(CartMixin, View):
         }
 
         return JsonResponse(response_data)
+

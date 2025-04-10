@@ -61,15 +61,45 @@
                     <span class="arrow">ᐯ</span>
                 </div>
                 <div class="filter-content">
-                    <form method="get" action=".">
-                        {% for flower_type in flower_types %}
-                            <label>
-                                <input type="checkbox" name="flower_type" value="{{ flower_type.pk }}" {% if flower_type.pk in selected_flower_types %}checked{% endif %}>
-                                {{ flower_type.name }}
-                            </label><br>
-                        {% endfor %}
-                        <button type="submit">Применить фильтр</button>
-                    </form>
+                    <div class="scrollable">
+                        <label><input type="checkbox"> Альстормерия</label><br>
+                        <label><input type="checkbox"> Амарилис</label><br>
+                        <label><input type="checkbox"> Бруния</label><br>
+                        <label><input type="checkbox"> Гвоздика</label><br>
+                        <label><input type="checkbox"> Гвоздика кустовая</label><br>
+                        <label><input type="checkbox"> Гербера</label><br>
+                        <label><input type="checkbox"> Гиацинт</label><br>
+                        <label><input type="checkbox"> Гиперикум</label><br>
+                        <label><input type="checkbox"> Гипсофила</label><br>
+                        <label><input type="checkbox"> Гортензия</label><br>
+                        <label><input type="checkbox"> Дельфиниум</label><br>
+                        <label><input type="checkbox"> Илекс</label><br>
+                        <label><input type="checkbox"> Ирис</label><br>
+                        <label><input type="checkbox"> Ковыль</label><br>
+                        <label><input type="checkbox"> Лизиантус</label><br>
+                        <label><input type="checkbox"> Лилия</label><br>
+                        <label><input type="checkbox"> Лилия пионовидная</label><br>
+                        <label><input type="checkbox"> Лимониум</label><br>
+                        <label><input type="checkbox"> Матиола</label><br>
+                        <label><input type="checkbox"> Нобилис</label><br>
+                        <label><input type="checkbox"> Пионовидная роза</label><br>
+                        <label><input type="checkbox"> Подсолнух</label><br>
+                        <label><input type="checkbox"> Ранункулюс</label><br>
+                        <label><input type="checkbox"> Роза Кения</label><br>
+                        <label><input type="checkbox"> Роза кустовая</label><br>
+                        <label><input type="checkbox"> Роза кустовая пионовидная</label><br>
+                        <label><input type="checkbox"> Роза Эквадор</label><br>
+                        <label><input type="checkbox"> Ромашка</label><br>
+                        <label><input type="checkbox"> Сантини</label><br>
+                        <label><input type="checkbox"> Сирень</label><br>
+                        <label><input type="checkbox"> Статица</label><br>
+                        <label><input type="checkbox"> Тюльпаны</label><br>
+                        <label><input type="checkbox"> Французская роза</label><br>
+                        <label><input type="checkbox"> Хризантемы</label><br>
+                        <label><input type="checkbox"> Шишка сосновая</label><br>
+                        <label><input type="checkbox"> Эвкалипт</label><br>
+                        <label><input type="checkbox"> Эустома</label><br>
+                    </div>
                 </div>
             </div>
             <div class="filter-item">
@@ -78,32 +108,25 @@
                     <span class="arrow">ᐯ</span>
                 </div>
                 <div class="filter-content">
-                    <form method="get" action=".">
-                        {% for color in colors %}
-                            <label>
-                                <input type="checkbox" name="color" value="{{ color.pk }}" {% if color.pk in selected_colors %}checked{% endif %}>
-                                {{ color.name }}
-                            </label><br>
-                        {% endfor %}
-                        <button type="submit">Применить фильтр</button>
-                    </form>
+                    <label><input type="checkbox"> Белый</label><br>
+                    <label><input type="checkbox"> Красный</label><br>
+                    <label><input type="checkbox"> Голубой</label><br>
+                    <label><input type="checkbox"> Зеленый</label><br>
+                    <label><input type="checkbox"> Желтый</label><br>
+                    <label><input type="checkbox"> Розовый</label><br>
+                    <label><input type="checkbox"> Персиковый</label><br>
+                    <label><input type="checkbox"> Оранжевый</label><br>
                 </div>
             </div>
+    
             <div class="filter-item">
                 <div class="filter-header">
                     По высоте
                     <span class="arrow">ᐯ</span>
                 </div>
                 <div class="filter-content">
-                    <form method="get" action=".">
-                        {% for height in heights %}
-                            <label>
-                                <input type="checkbox" name="height" value="{{ height.pk }}" {% if height.pk in selected_heights %}checked{% endif %}>
-                                {{ height.value }} {{ height.unit }}
-                            </label><br>
-                        {% endfor %}
-                        <button type="submit">Применить фильтр</button>
-                    </form>
+                    <label><input type="checkbox"> 40-60 см</label><br>
+                    <label><input type="checkbox"> 60-70 см</label><br>
                 </div>
             </div>
         </div>
@@ -191,10 +214,10 @@
                                             </div>
                                         {% endif %}
                                         <div>
-                                            <a href="{% url 'cart:cart_add' %}" class="btn add-to-cart" data-product-id="{{ product.id }}">
+                                            <a href="{% url "cart:cart_add" %}" class="btn add-to-cart" data-product-id="{{ product.id }}">
                                                 {% csrf_token %}
-                                                <img class="mx-1" src="{% static 'deps/icons/basket.png' %}" alt="Catalog Icon" width="32" height="32">
-                                            </a>
+                                                <img src="{% static 'deps/icons/basket.png' %}" alt="Catalog Icon" width="32" height="32">
+                                              </a>
                                         </div>
                                     </div>
                                 </div>
