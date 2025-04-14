@@ -25,7 +25,7 @@ class CartAddView(CartMixin, View):
                                 product=product, quantity=1)
         
         response_data = {
-            "message": "Товар добавлен в корзину",
+            
             'cart_items_html': self.render_cart(request)
         }
 
@@ -44,7 +44,6 @@ class CartChangeView(CartMixin, View):
         quantity = cart.quantity
 
         response_data = {
-            "message": "Количество изменено",
             "quantity": quantity,
             'cart_items_html': self.render_cart(request)
         }
@@ -61,7 +60,6 @@ class CartRemoveView(CartMixin, View):
         cart.delete()
 
         response_data = {
-            "message": "Товар удален из корзины",
             "quantity_deleted": quantity,
             'cart_items_html': self.render_cart(request)
         }

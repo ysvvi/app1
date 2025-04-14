@@ -1,18 +1,15 @@
 from django.http import Http404
 from django.views.generic import DetailView, ListView
-
 from goods.models import Products
 from goods.utils import q_search
 
 
 class CatalogView(ListView):
     model = Products
-    # queryset = Products.objects.all().order_by("-id")
     template_name = "goods/catalog.html"
     context_object_name = "goods"
-    paginate_by = 3
+    paginate_by = 27
     allow_empty = False
-    # чтоб удобно передать в методы
     slug_url_kwarg = "category_slug"
 
     def get_queryset(self):
@@ -47,8 +44,6 @@ class CatalogView(ListView):
 
 class ProductView(DetailView):
 
-    # model = Products
-    # slug_field = "slug"
     template_name = "goods/product.html"
     slug_url_kwarg = "product_slug"
     context_object_name = "product"
